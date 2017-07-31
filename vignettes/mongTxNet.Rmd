@@ -1,0 +1,56 @@
+---
+title: 'Multiomic regulatory network analysis via txRegQuery (formerly mongoDrillConductor)'
+author: |
+  | BJ Stubbs, Shweta Gopaulakrishnan, Vince Carey, Peter Castaldi
+  | Channing Division of Network Medicine, Brigham and Women's Hospital
+date: "July 26, 2017"
+output:
+  slidy_presentation:
+    incremental: no
+  ioslides_presentation:
+    fig_height: 5
+    incremental: no
+    mathjax: default
+---
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+## Lee, Rinaldi et al. _Science_ 2002: TxRegNet for _S. cerevisiae_
+
+<div class=col2>
+![](leeRinaldi.png)
+
+- Condition/phenotype: stage $G_1, S, G_2, M$, budding
+
+- Blue boxes: upregulated genes
+
+- Ovals/Arcs: transcription factors and their periods of influence
+
+</div>
+
+## Maurano, Humbert et al. _Science_ 2012: "Common (human) disease network"
+
+<div class=col2>
+
+<img src="mauranoNet.png" alt="Drawing" style="width: 700px;"/>
+
+- Disease:DNA -- GWAS SNPs in FIMO-identified binding sites
+
+- Sequence for motif finding: hg19-alt -- all SNP sites coded as alternate allele
+, with GWAS SNPs that disrupt FIMO-identified binding sites (BSgenome has a method for SNP-injection)
+ 
+- *New challenge*: from sequence-derived TFBS, epigenomically defined regulatory regions (tissue-specific), tissue-specific (GTEX) eQTL, derive regulatory networks to help interpret local COPD GWAS
+</div>
+
+##
+
+![](BJ_SG_FOXP1.png)
