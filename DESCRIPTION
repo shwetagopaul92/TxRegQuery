@@ -1,7 +1,7 @@
 Package: txregquery
 Type: Package
 Title: Query txregnet data
-Version: 0.1.5
+Version: 0.1.6
 Author: BJ Stubbs <rebjh@channing.harvard.edu> and others
 Maintainer: Shweta Gopaulakrishnan <reshg@channing.harvard.edu> 
 Description: Infrastructure to query eQTL, TF, Footprint data.
