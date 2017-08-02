@@ -58,7 +58,8 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 
 ## Query eQTL Bigquery
 
-- Expr: (eqtl_tbl %>% filter(chr == mychr) %>% filter(snp_pos >= mystart) %>% filter(snp_pos <= myend) %>% as.data.frame())
+- Expr: 
+- (eqtl_tbl %>% filter(chr == mychr) %>% filter(snp_pos >= mystart) %>% filter(snp_pos <= myend) %>% as.data.frame())
 - file : Breast_Mammary_Tissue_Analysis.v6p.all_snpgene_pairs_eQTL (13.57 GB)
 - Unit : seconds
 
@@ -75,7 +76,8 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 
 ##Query FP Bigquery
 
-- Exprs : (fp_tbl %>% filter(chr == mychr) %>% filter(start >= mystart) %>% filter(end <= myend) %>% as.data.frame())
+- Expr : 
+- (fp_tbl %>% filter(chr == mychr) %>% filter(start >= mystart) %>% filter(end <= myend) %>% as.data.frame())
 - file - vHMEC_DS18406_footprint.bed (3.84 GB)
 - Unit : milliseconds
 
@@ -83,7 +85,7 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 
 ## Query FP MongoDB
 
-- Exprs : my_collection$find(myquery)
+- Expr : my_collection$find(myquery)
 - my_collection : vHMEC_DS18406_footprint
 - Unit : milliseconds
 
@@ -92,10 +94,13 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 
 ## Query TF Bigquery
 
-- Expr : (tf_tbl %>% filter(chr == mychr) %>% filter(start >= mystart) %>% filter(end <= myend) %>% as.data.frame())
+- Expr : 
+- (tf_tbl %>% filter(chr == mychr) %>% filter(start >= mystart) %>% filter(end <= myend) %>% as.data.frame())
 - file : - M2283_1.02.bed (30.9 MB)
 - TF : FOXP1
 - Unit : seconds
+
+![](images/bqTf.png)
 
 ## Query TF Drill
 
