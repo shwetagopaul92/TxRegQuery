@@ -1,1 +1,1 @@
-# txregquery
+# TxRegQuery
