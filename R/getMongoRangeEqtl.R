@@ -24,11 +24,11 @@ getMongoRangeEqtl<-function(mychr,mystart,myend,mycoll,mydb){
   require(GenomicRanges)
   my_collection = mongo(collection = mycoll, db = mydb) # connect
   myquery=paste0('{',
-                 '"chr":',mychr,',',
+                 '"snp_chr":',mychr,',',
                  '"snp_pos" : {"$gte":',mystart,'},',
                  '"snp_pos" : {"$lte":',myend,'}}')
   res=my_collection$find(myquery)
-  myrange=GRanges(res$chr, IRanges(res$snp_pos, width = 1), mcols=res)
+  myrange=GRanges(res$snp_chr, IRanges(res$snp_pos, width = 1), mcols=res)
   myrange
 
 }
