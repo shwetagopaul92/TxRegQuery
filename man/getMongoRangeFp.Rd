@@ -27,7 +27,7 @@ mystartGo=41196312-500*1000
 myendGo=41322262+500*1000
 mycollGo="vHMEC_DS18406_footprint"
 mydbGo="txregnet"
-res_fp=getMongoRangeFp(mychrGo,mystartGo,myendGo,mycollGo,myendGo)
+res_fp=getMongoRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
 res_fp
 }
 }
