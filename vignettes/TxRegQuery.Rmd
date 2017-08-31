@@ -11,7 +11,7 @@ vignette: >
 
 # Introduction
 
-TxRegQuery is an R package we developed that utilizes the R packages mongolite, GenomicRanges, and bigrquery to provide users with specialized tools for information access, retrieval from both MongoDB/Drill and BigQuery backends. TxRegQuery makes it possible to extract data in the form of GRanges objects, which can be filtered and intersected to create node-edge lists used in the formulation of regulatory networks. 
+TxRegQuery is an R package that utilizes mongolite, GenomicRanges, and bigrquery to provide users with specialized tools for information access, retrieval from both MongoDB/Drill and BigQuery backends. TxRegQuery makes it possible to extract data in the form of GRanges objects, which can be filtered and intersected to create node-edge lists used in the formulation of regulatory networks. 
 
 Our database "txregnet" hosts the following types of data : 
 
@@ -22,6 +22,8 @@ Our database "txregnet" hosts the following types of data :
 
 - Encode DNAse hypersensitivity bed files: /proj/rerefs/reref00/ENCODE/DNaseI_Roadmap_Encode/BEDFILES
 - Roadmap digital genomic footprints: /udd/reala/reference_files/annotations/ROADMAP_DGF/
+
+The Transcription factor data is currently on shion. 
 
 3. TF data
 
