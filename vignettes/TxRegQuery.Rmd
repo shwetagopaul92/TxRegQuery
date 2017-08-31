@@ -9,24 +9,25 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-##Introduction
+# Introduction
 
 TxRegQuery is an R package we developed that utilizes the R packages mongolite, GenomicRanges, and bigrquery to provide users with specialized tools for information access, retrieval from both MongoDB/Drill and BigQuery backends. TxRegQuery makes it possible to extract data in the form of GRanges objects, which can be filtered and intersected to create node-edge lists used in the formulation of regulatory networks. 
 
 Our database "txregnet" hosts the following types of data : 
 
-1. eQTL/GWAS data
-GTEx eqtl files: /udd/reala/repos/analyses/TxRegNet/data/eQTL/GTEx_v6p/filtered_0.05/eqtl_files
-2. Annotations
+1.  eQTL/GWAS data
+- GTEx eqtl files: /udd/reala/repos/analyses/TxRegNet/data/eQTL/GTEx_v6p/filtered_0.05/eqtl_files
 
-Encode DNAse hypersensitivity bed files: /proj/rerefs/reref00/ENCODE/DNaseI_Roadmap_Encode/BEDFILES
-Roadmap digital genomic footprints: /udd/reala/reference_files/annotations/ROADMAP_DGF/
+2.  Annotations
+
+- Encode DNAse hypersensitivity bed files: /proj/rerefs/reref00/ENCODE/DNaseI_Roadmap_Encode/BEDFILES
+- Roadmap digital genomic footprints: /udd/reala/reference_files/annotations/ROADMAP_DGF/
 
 3. TF data
 
-Kimbie's CISBP FIMO scan TF bed files: /udd/rekrg/EpiPANDA/FIMO_results/ScanBedResults - http://cisbp.ccbr.utoronto.ca/faq.html is origin of PSSM
+- Kimbie's CISBP FIMO scan TF bed files: /udd/rekrg/EpiPANDA/FIMO_results/ScanBedResults - http://cisbp.ccbr.utoronto.ca/faq.html is origin of PSSM
 
-Kheradpour TF sites are located at: /udd/reala/reference_files/eqtl_gwas/matches.txt.gz
+- Kheradpour TF sites are located at: /udd/reala/reference_files/eqtl_gwas/matches.txt.gz
 
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages({
@@ -37,6 +38,8 @@ library(GenomicRanges)
 })
 ```
 
+# Establish connection 
+ 
 To successfully connect to our "txregnet" databaseand view the collections present :  
 
 ```{r dobanoyy}
@@ -44,9 +47,10 @@ conn = mongoSource()
 
 ```
 
-#MongoDB backend
+# MongoDB backend
 
-## To retrieve GRanges of the eQTL's
+## eQTL
+### To retrieve GRanges of the eQTL's
 ```{r eqtl}
 
 myoff=100*1000
