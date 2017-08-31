@@ -1,7 +1,6 @@
 Package: TxRegQuery
-Type: Package
 Title: Query txregnet data
-Version: 0.1.9
+Version: 0.2
 Author: BJ Stubbs <rebjh@channing.harvard.edu> and others
 Maintainer: Shweta Gopaulakrishnan <reshg@channing.harvard.edu> 
 Description: Infrastructure to query eQTL, TF, Footprint data.
@@ -11,3 +10,4 @@ License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr

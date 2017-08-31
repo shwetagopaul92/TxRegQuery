@@ -1,0 +1,84 @@
+---
+title: "TxRegQuery"
+author: "Shweta Gopaulakrishnan, reshg at channing.harvard.edu, BJ Stubbs rebjh at channing.harvard.edu"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: pdf_document
+vignette: >
+  %\VignetteIndexEntry{TxRegQuery}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+#Introduction
+
+TxRegQuery is an R package we developed that utilizes the R packages mongolite, GenomicRanges, and bigrquery to provide users with specialized tools for information access, retrieval from both MongoDB/Drill and BigQuery backends. TxRegQuery makes it possible to extract data in the form of GRanges objects, which can be filtered and intersected to create node-edge lists used in the formulation of regulatory networks. 
+
+Our database "txregnet" hosts the following types of data : 
+
+1. eQTL/GWAS data
+GTEx eqtl files: /udd/reala/repos/analyses/TxRegNet/data/eQTL/GTEx_v6p/filtered_0.05/eqtl_files
+2. Annotations
+
+Encode DNAse hypersensitivity bed files: /proj/rerefs/reref00/ENCODE/DNaseI_Roadmap_Encode/BEDFILES
+Roadmap digital genomic footprints: /udd/reala/reference_files/annotations/ROADMAP_DGF/
+
+3. TF data
+
+Kimbie's CISBP FIMO scan TF bed files: /udd/rekrg/EpiPANDA/FIMO_results/ScanBedResults - http://cisbp.ccbr.utoronto.ca/faq.html is origin of PSSM
+
+Kheradpour TF sites are located at: /udd/reala/reference_files/eqtl_gwas/matches.txt.gz
+
+```{r setup, include=FALSE}
+suppressPackageStartupMessages({
+library(TxRegQuery)
+library(mongolite)
+library(RMongo)
+library(GenomicRanges)
+})
+```
+
+To successfully connect to our "txregnet" databaseand view the collections present :  
+
+```{r dobanoyy}
+conn = mongoSource()
+
+```
+
+#MongoDB backend
+
+## To retrieve GRanges of the eQTL's
+```{r eqtl}
+
+myoff=100*1000
+mystartGo=38077296-myoff
+myendGo=38083884+myoff
+mychrGo=17
+mycollGo="Cells_Transformed_fibroblasts_Analysis.v6p.all_snpgene_pairs_eQTL"
+mydbGo="txregnet"
+res_eqtl=getMongoRangeEqtl(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
+res_eqtl
+```
+
+## Annotation Data
+### To retrieve the GRanges of Footprints data:
+
+```{r footprint}
+
+myoff=100*1000
+mystartGo=38077296-myoff
+myendGo=38083884+myoff
+mychrGo="chr17"
+mydbGo="txregnet"
+mycollGo="CD19_DS17186.hg19_footprint"
+res_fp=getMongoRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
+res_fp
+```
+
+# Apache Drill
+## Transcription Factor Data
+
+We use Apache Drill to extract the GRanges of the Transcription Factor data present on (shion currently)
+
+
+
+
