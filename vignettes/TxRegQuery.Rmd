@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-#Introduction
+##Introduction
 
 TxRegQuery is an R package we developed that utilizes the R packages mongolite, GenomicRanges, and bigrquery to provide users with specialized tools for information access, retrieval from both MongoDB/Drill and BigQuery backends. TxRegQuery makes it possible to extract data in the form of GRanges objects, which can be filtered and intersected to create node-edge lists used in the formulation of regulatory networks. 
 
