@@ -31,6 +31,15 @@ The Transcription factor data is currently on shion.
 
 - Kheradpour TF sites are located at: /udd/reala/reference_files/eqtl_gwas/matches.txt.gz
 
+# Implementation 
+
+This has been implemented in : 
+1. shion 
+2. Amazon EC2 Instance :
+   Specification : 
+   - m4.2xlarge, 8 vCPUs, 32 GiB Memory, High Network Performance.  
+   - Ubuntu Server 16.04 LTS (HVM), SSD Volume Type, with a attached EBS volume of 250 GiB.
+
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages({
 library(TxRegQuery)
