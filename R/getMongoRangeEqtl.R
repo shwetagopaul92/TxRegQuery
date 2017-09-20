@@ -13,7 +13,7 @@
 #' mychrGo=17
 #' mystartGo=41196312-500*1000
 #' myendGo=41322262+500*1000
-#' mycollGo = "Breast_Mammary_Tissue_Analysis.v6p.all_snpgene_pairs_eQTL"
+#' mycollGo = "Cells_Transformed_fibroblasts_Analysis_v6p_all_snpgene_pairs_eQTL"
 #' mydbGo="txregnet"
 #' res_eqtl=getMongoRangeEqtl(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
 #' res_eqtl

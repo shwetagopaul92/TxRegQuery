@@ -39,34 +39,37 @@ library(RMongo)
 library(GenomicRanges)
 })
 ```
+# MongoDB as a backend 
 
-# Establish connection 
+Structure : 
+We have a mongo database "txregnet" hosting multiple collections for the eQTL, FootPrint, DNASe HyperSensitivity data. 
+## Establish connection 
  
-To successfully connect to our "txregnet" databaseand view the collections present :  
+To successfully connect to our "txregnet" database and view the collections present :  
 
 ```{r dobanoyy}
 conn = mongoSource()
 
 ```
-
-# MongoDB backend
+To access the different collections : 
 
 ## eQTL
-### To retrieve GRanges of the eQTL's
+### To retrieve GRanges of the eQTL's : 
+
 ```{r eqtl}
 
 myoff=100*1000
 mystartGo=38077296-myoff
 myendGo=38083884+myoff
 mychrGo=17
-mycollGo="Cells_Transformed_fibroblasts_Analysis.v6p.all_snpgene_pairs_eQTL"
+mycollGo="Cells_Transformed_fibroblasts_Analysis_v6p_all_snpgene_pairs_eQTL"
 mydbGo="txregnet"
 res_eqtl=getMongoRangeEqtl(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
 res_eqtl
 ```
 
 ## Annotation Data
-### To retrieve the GRanges of Footprints data:
+### To retrieve the GRanges of Footprints data :
 
 ```{r footprint}
 
@@ -75,7 +78,7 @@ mystartGo=38077296-myoff
 myendGo=38083884+myoff
 mychrGo="chr17"
 mydbGo="txregnet"
-mycollGo="CD19_DS17186.hg19_footprint"
+mycollGo="CD19_DS17186_hg19_FP"
 res_fp=getMongoRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
 res_fp
 ```
@@ -85,6 +88,58 @@ res_fp
 
 We use Apache Drill to extract the GRanges of the Transcription Factor data present on (shion currently)
 
+# BigQuery as a backend
+
+Structure:
+
+We have defined a dataset "txregnet" under the project "cgc-xx-xxx". There are three tables "eQTL", "FP", "TF". 
+It is required to have a billing group set up with BigQuery.
+
+To access the data on BigQuery : 
+
+## eQTL 
+### To retrieve the GRanges of the eQTL's : 
+
+```{r bigeqtl}
+
+mychrGo="17"
+mystartGo=41196312-500*1000
+myendGo=41322262+500*1000
+myprojectGo="cgc-xx-xxxx"
+mydatasetGo="txregnet"
+mybillingGo = "cgc-xx-xxxx"
+res_eqtl=getBigqueryRangeEqtl(mychrGo,mystartGo,myendGo,myprojectGo,mydatasetGo,mybillingGo)
+res_eqtl
+```
+## Annotation Data 
+### To retrieve the GRanges of Footprint's data : 
+
+```{r bigfp}
+
+mychrGo="chr17"
+mystartGo=41196312-500*1000
+myendGo=41322262+500*1000
+myprojectGo="cgc-xx-xxxx"
+mydatasetGo="txregnet"
+mybillingGo = "cgc-xx-xxxx"
+res_fp=getBigqueryRangeFp(mychrGo,mystartGo,myendGo,myprojectGo,mydatasetGo,mybillingGo)
+res_fp
+```
+## Transcription Factor Data
+### To retrieve the GRanges of the TF data : 
+
+```{r tf}
+
+mychrGo="chr17"
+mystartGo=41196312-500*1000
+myendGo=41322262+500*1000
+myprojectGo="cgc-xx-xxxx"
+mydatasetGo="txregnet"
+mybillingGo = "cgc-xx-xxxx"
+res_tf=getBigqueryRangeTf(mychrGo,mystartGo,myendGo,myprojectGo,mydatasetGo,mybillingGo)
+res_tf
+```
+# neo4j Building 
 
 
 

@@ -1,4 +1,4 @@
-#'query Footprint data from bigquery
+#'query TF data from bigquery
 #'@import GenomicRanges
 #'@import bigrquery
 #'@import dplyr

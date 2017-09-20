@@ -2,7 +2,7 @@
 % Please edit documentation in R/getBigqueryRangeTf.R
 \name{getBigqueryRangeTf}
 \alias{getBigqueryRangeTf}
-\title{query Footprint data from bigquery}
+\title{query TF data from bigquery}
 \usage{
 getBigqueryRangeTf(mychr, mystart, myend, myproject, mydataset, mybilling)
 }
@@ -20,7 +20,7 @@ getBigqueryRangeTf(mychr, mystart, myend, myproject, mydataset, mybilling)
 \item{mybilling}{billing group in bigquery}
 }
 \description{
-query Footprint data from bigquery
+query TF data from bigquery
 }
 \examples{
 \dontrun{
