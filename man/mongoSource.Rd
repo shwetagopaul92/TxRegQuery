@@ -4,10 +4,14 @@
 \alias{mongoSource}
 \title{connect to mongo database and retrieve collection names}
 \usage{
-mongoSource(db = "txregnet")
+mongoSource(dbName, host, port)
 }
 \arguments{
-\item{db}{default database is txregnet}
+\item{dbName}{character with database name  default database is txregnet}
+
+\item{host}{character variable with url}
+
+\item{port}{port number}
 }
 \description{
 connect to mongo database and retrieve collection names
