@@ -6,9 +6,9 @@
 #' @param port port number
 #' @export
 mongoSource <- function(dbName,host,port){
-	con <- mongoDbConnect(dbName=db,host=url,port=port)
-        cat("Connection established to",db,"database successfully! \n")
-        cat("The collections present on the",db,"are: \n")
+	con <- mongoDbConnect(dbName=dbName,host=host,port=port)
+        cat("Connection established to",dbName,"database successfully! \n")
+        cat("The collections present on the",dbName,"are: \n")
         collList = dbShowCollections(con)
         return(collList)
 } 
