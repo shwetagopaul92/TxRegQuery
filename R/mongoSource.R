@@ -1,7 +1,7 @@
 #' connect to mongo database and retrieve collection names
 #' @import RMongo
 #' @import rJava
-#' @param dbName character with database name  default database is txregnet
+#' @param dbName character with database name
 #' @param host character variable with url
 #' @param port port number
 #' @export

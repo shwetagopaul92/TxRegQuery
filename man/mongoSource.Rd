@@ -7,7 +7,7 @@
 mongoSource(dbName, host, port)
 }
 \arguments{
-\item{dbName}{character with database name  default database is txregnet}
+\item{dbName}{character with database name}
 
 \item{host}{character variable with url}
 
