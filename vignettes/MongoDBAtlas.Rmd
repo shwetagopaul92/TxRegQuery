@@ -1,0 +1,77 @@
+---
+title: "MongoDB Atlas"
+author: "Shweta Gopaulakrishnan, reshg at channing.harvard.edu"
+output:
+  html_document: default
+  pdf_document: default
+vignette: |
+  %\VignetteIndexEntry{DataProcessing} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
+---
+
+#MongoDB Atlas
+
+- Delivers the world’s leading database for modern applications as a fully automated cloud service. 
+- Proven operational and security practices are built in, automating time-consuming administration tasks such as infrastructure provisioning,     database setup, ensuring availability, global distribution, backups, and more. 
+- The easy-to-use UI and API let you spend more time building your applications and less time managing your database.
+
+
+
+# Available Plans 
+
+![](images/plans.png)
+
+
+#Pricing 
+
+![](images/pricing.png)
+
+
+#How to work with MongoDB Atlas
+
+Step 1 : Create an Atlas User Account
+
+Step 2 : Create an Atlas Free Tier Cluster 
+
+![](images/cluster.png)
+
+
+Step 3 : Connect to a Cluster 
+
+3.a.) Check the IP Whitelist
+
+3.b.) Choose a Connection Method ( mongo shell )
+
+3.c) Start a terminal and enter the connection command, enter password when prompted
+
+3.d.) Can perform mongo commands from here
+
+![](images/connect.png)
+
+
+
+
+![](images/connect3.png)
+
+
+
+
+#Step 4 : Import data into a Cluster
+
+- Grab the cluster name for --host
+
+mongoimport --host  cluster0-shard-00-00-ag7nd.mongodb.net:27017 --db test --type tsv --file CD34_DS12734_hg19.bed --authenticationDatabase admin --ssl --username reshg --password 
+    
+    
+#Step 5 : Query the data from R 
+
+```{r do}
+library(mongolite)
+url="mongodb+srv://cluster0-ag7nd.mongodb.net/test"
+mongo(collection="CD34_DS12734_hg19",db="test",url=url)
+
+```
+
+# Reference
+
+https://docs.atlas.mongodb.com/
+
