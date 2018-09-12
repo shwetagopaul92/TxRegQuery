@@ -11,7 +11,7 @@ vignette: |
 #MongoDB Atlas
 
 - Delivers the world’s leading database for modern applications as a fully automated cloud service. 
-- Proven operational and security practices are built in, automating time-consuming administration tasks such as infrastructure provisioning,     database setup, ensuring availability, global distribution, backups, and more. 
+- Proven operational and security practices are built in, automating time-consuming administration tasks such as infrastructure provisioning, database setup, ensuring availability, global distribution, backups, and more. 
 - The easy-to-use UI and API let you spend more time building your applications and less time managing your database.
 
 
@@ -67,7 +67,7 @@ mongoimport --host  cluster0-shard-00-00-ag7nd.mongodb.net:27017 --db test --typ
 ```{r do}
 library(mongolite)
 url="mongodb+srv://cluster0-ag7nd.mongodb.net/test"
-mongo(collection="CD34_DS12734_hg19",db="test",url=url)
+mongo(collection="cebpgr",db="encode",url=url)
 
 ```
 

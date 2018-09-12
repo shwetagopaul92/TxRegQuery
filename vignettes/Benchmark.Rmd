@@ -1,9 +1,8 @@
 ---
-title: "Simple Overview of Google Cloud Platform"
-author: |
-  | Shweta Gopaulakrishnan,
-  | Channing Division of Network Medicine, Brigham and Women's Hospital
-date: "August 1, 2017"
+title: "Benchmark Cloud vs Desktop"
+author: 
+  "Shweta Gopaulakrishnan, BJ Stubbs, Channing Division of Network Medicine, Brigham and Women's Hospital"
+date: "October 17, 2017"
 output:
   slidy_presentation:
     incremental: no
@@ -14,32 +13,9 @@ output:
   beamer_presentation:
     incremental: no
 ---
-
-## Google Cloud Storage
-- Bucket Name - test_data_txreg
-- Location : US, Default Storage Class: Multi- Regional
-
-## Cost
-
-- Project storage and bandwidth usage charges accrue daily, but Google Cloud Storage bills you only at the end of the billing period.
-- Distributed across Storage, Operations, Network mainly.
-- Storage Cost:
-  ![](images/storageCost.png)
-
-- Operations cost
-![](images/operationCost.png)
-
-## 
-- Network cost
-
-![](images/networkCost.png)
-
-e:g: 
-- 50 GB Multi-Regional Storage at $0.026/per GB: $1.30
-- 10 GB of network egress at $0.12/per GB: $1.20
-- 10,000 Class A operations at $0.05/per 10,000 operations: $0.05
-- 10,000 Class B operations at $0.004/per 10,000 operations: $0.004
-Total : $2.554
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Google Bigquery
 - Storing and querying massive datasets can be time consuming and expensive without the right
@@ -47,14 +23,22 @@ hardware and infrastructure.
 - Google BigQuery is an enterprise data warehouse that enables
 super-fast SQL queries using the processing power of Google's infrastructure.
 
-## Cost
+## MongoDB
 
-- Loading,copying,exporting,list,get,patch,update and delete operations are free.
-- Free tier pricing : The first 10 GB of storage is free of charge each month(per billing account).
+- MongoDB stores data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time -  NoSQL database 
+- The document model maps to the objects in your application code, making data easy to work with
+- Ad hoc queries, indexing, and real time aggregation provide powerful ways to access and analyze your data
 
-![](images/bigqueryCost.png)
+## Apache Drill 
 
-## Comparing BigQuery and MongoDB as backend
+- Schema-free SQL Query Engine for Hadoop, NoSQL and Cloud Storage
+- Drill's datastore-aware optimizer automatically restructures a query plan to leverage the datastore's internal processing capabilities. 
+- Drill supports data locality, so it's a good idea to co-locate Drill and the datastore on the same nodes
+- Agile
+- Flexible
+
+
+## Comparing BigQuery, MongoDB, Apache Drill as backend
 
 ## Query eQTL Bigquery
 
@@ -73,7 +57,6 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 
 ![](images/mongoEqtl.png)
 
-
 ##Query FP Bigquery
 
 - Expr : 
@@ -91,12 +74,11 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 
 ![](images/mongoFp.png)
 
-
 ## Query TF Bigquery
 
 - Expr : 
 - (tf_tbl %>% filter(chr == mychr) %>% filter(start >= mystart) %>% filter(end <= myend) %>% as.data.frame())
-- file : - M2283_1.02.bed (3.9 GiB)
+- file : - M2283_1.02.bed (30.9 MB)
 - TF : FOXP1
 - Unit : seconds
 
@@ -105,12 +87,8 @@ super-fast SQL queries using the processing power of Google's infrastructure.
 ## Query TF Drill
 
 - Expr : rd_query(mydrill, myquery)
-- M2283_1.02.bed (3.9 GiB)
+- M2283_1.02.bed 
 - TF : FOXP1
 - Unit : seconds
 
 ![](images/DrillTf.png)
-
-
-
-
