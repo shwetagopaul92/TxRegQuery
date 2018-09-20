@@ -8,7 +8,7 @@ vignette: |
   %\VignetteIndexEntry{DataProcessing} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
 ---
 
-#MongoDB Atlas
+# MongoDB Atlas
 
 - Delivers the world’s leading database for modern applications as a fully automated cloud service. 
 - Proven operational and security practices are built in, automating time-consuming administration tasks such as infrastructure provisioning, database setup, ensuring availability, global distribution, backups, and more. 
@@ -21,29 +21,30 @@ vignette: |
 ![](images/plans.png)
 
 
-#Pricing 
+# Pricing 
 
 ![](images/pricing.png)
 
 
-#How to work with MongoDB Atlas
 
-Step 1 : Create an Atlas User Account
+# How to work with MongoDB Atlas
 
-Step 2 : Create an Atlas Free Tier Cluster 
+- Create an Atlas User Account
+
+- Create an Atlas Free Tier Cluster 
 
 ![](images/cluster.png)
 
 
-Step 3 : Connect to a Cluster 
+# Connect to a Cluster 
 
-3.a.) Check the IP Whitelist
+- Check the IP Whitelist
 
-3.b.) Choose a Connection Method ( mongo shell )
+- Choose a Connection Method ( mongo shell )
 
-3.c) Start a terminal and enter the connection command, enter password when prompted
+- Start a terminal and enter the connection command, enter password when prompted
 
-3.d.) Can perform mongo commands from here
+- Can perform mongo commands from here
 
 ![](images/connect.png)
 
@@ -55,19 +56,21 @@ Step 3 : Connect to a Cluster
 
 
 
-#Step 4 : Import data into a Cluster
+# Import data into a Cluster
 
 - Grab the cluster name for --host
 
-mongoimport --host  cluster0-shard-00-00-ag7nd.mongodb.net:27017 --db test --type tsv --file CD34_DS12734_hg19.bed --authenticationDatabase admin --ssl --username reshg --password 
+mongoimport --host  cluster0-shard-00-00-ag7nd.mongodb.net:27017 --db encode --type csv --file cebpbgr.csv --authenticationDatabase admin --ssl --username reshg --password 
     
     
-#Step 5 : Query the data from R 
+# Query the data from R 
+
+- To query the 10 CEBPB GRanges collection 
 
 ```{r do}
 library(mongolite)
 url="mongodb+srv://cluster0-ag7nd.mongodb.net/test"
-mongo(collection="cebpgr",db="encode",url=url)
+mongo(collection="cebpbgr",db="encode",url=url)
 
 ```
 

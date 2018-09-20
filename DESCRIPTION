@@ -1,10 +1,10 @@
 Package: TxRegQuery
 Title: Query txregnet data
-Version: 0.4
+Version: 0.5
 Author: BJ Stubbs <rebjh@channing.harvard.edu> and others
 Maintainer: Shweta Gopaulakrishnan <reshg@channing.harvard.edu> 
 Description: Infrastructure to query eQTL, TF, Footprint data.
-Imports: RMongo,rJava, mongolite, GenomicRanges, DrillR, bigrquery, dplyr, magrittr, DBI
+Imports: mongolite, GenomicRanges, DrillR, bigrquery, dplyr, magrittr, DBI
 Suggests: rmarkdown, knitr
 License: Artistic-2.0
 Encoding: UTF-8

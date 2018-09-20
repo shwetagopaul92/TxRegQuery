@@ -54,12 +54,6 @@ Structure :
 We have a mongo database "txregnet" hosting multiple collections for the eQTL, FootPrint, DNASe HyperSensitivity data. 
 ## Establish connection 
  
-To successfully connect to our "txregnet" database and view the collections present :  
-
-```{r dobanoyy}
-conn = mongoSource()
-
-```
 To access the different collections : 
 
 ## eQTL
