@@ -30,7 +30,7 @@ myendGo=41322262+500*1000
 mycollGo="fSkin_fibro_bicep_R_DS19745_hg19_FP"
 mydbGo="txregnet"
 url="mongodb+srv://test:test123!@cluster1-ag7nd.mongodb.net/test"
-res_fp=getMongoRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
+res_fp=getAtlasRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
 res_fp
 }
 }

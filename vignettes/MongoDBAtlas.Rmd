@@ -49,10 +49,7 @@ vignette: |
 ![](images/connect.png)
 
 
-
-
 ![](images/connect3.png)
-
 
 
 
@@ -61,7 +58,12 @@ vignette: |
 - Grab the cluster name for --host
 
 mongoimport --host  cluster0-shard-00-00-ag7nd.mongodb.net:27017 --db encode --type csv --file cebpbgr.csv --authenticationDatabase admin --ssl --username reshg --password 
-    
+  
+# Datasets on MongoDb Atlas 
+Database Name : txregnet
+DATABASE SIZE : 4.42GB
+INDEX SIZE  : 400.1MB
+TOTAL COLLECTIONS :  45
     
 # Query the data from R 
 
@@ -69,11 +71,25 @@ mongoimport --host  cluster0-shard-00-00-ag7nd.mongodb.net:27017 --db encode --t
 
 ```{r do}
 library(mongolite)
-url="mongodb+srv://cluster0-ag7nd.mongodb.net/test"
+url="mongodb+srv://def:def@cluster1-ag7nd.mongodb.net/test"
 mongo(collection="cebpbgr",db="encode",url=url)
-
 ```
 
+# Query data using TxRegQuery
+
+- To query eqtl data 
+
+```{r doit}
+library(TxRegQuery)
+mychrGo=17
+mystartGo=41196312-500*1000
+myendGo=41322262+500*1000
+mycollGo="Whole_Blood_allpairs_v7_eQTL"
+mydbGo="txregnet"
+url="mongodb+srv://def:def@cluster1-ag7nd.mongodb.net/test"
+res_eqtl=getAtlasRangeEqtl(mychrGo,mystartGo,myendGo,mycollGo,mydbGo,url)
+res_eqtl
+```
 # Reference
 
 https://docs.atlas.mongodb.com/

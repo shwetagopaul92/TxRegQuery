@@ -1,4 +1,4 @@
-#'query eQTL from mongodb atlas
+#'query eQTL from MongoDB Atlas
 #'@import GenomicRanges
 #'@import mongolite
 #'@param mychr chromosome
@@ -17,11 +17,11 @@
 #' mycollGo = "Whole_Blood_allpairs_v7_eQTL"
 #' mydbGo="txregnet"
 #' url="mongodb+srv://test:test123!@cluster1-ag7nd.mongodb.net/test"
-#' res_eqtl=getMongoRangeEqtl(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
+#' res_eqtl=getAtlasRangeEqtl(mychrGo,mystartGo,myendGo,mycollGo,mydbGo,url)
 #' res_eqtl
 #' }
 #' @export
-getMongoRangeEqtl<-function(mychr,mystart,myend,mycoll,mydb,url){
+getAtlasRangeEqtl<-function(mychr,mystart,myend,mycoll,mydb,url){
   require(mongolite)
   require(GenomicRanges)
   my_collection = mongo(collection = mycoll, db = mydb, url=url) # connect

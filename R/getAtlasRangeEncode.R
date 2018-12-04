@@ -1,4 +1,4 @@
-#'query GRange from mongodb atlas
+#'query Encode GRange from MongoDB Atlas
 #'@import GenomicRanges
 #'@import mongolite
 #'@param mychr chromosome
@@ -17,11 +17,11 @@
 #' mycollGo = "encode690"
 #' mydbGo="encode"
 #' url="mongodb+srv://test:test123!@cluster1-ag7nd.mongodb.net/test"
-#' res=getAtlasRangeEncode(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
+#' res=getAtlasRangeEncode(mychrGo,mystartGo,myendGo,mycollGo,mydbGo,url)
 #' res
 #' }
 #' @export
-getAtlasRangeEncode<-function(mychr,mystart,myend,url,mycoll,mydb){
+getAtlasRangeEncode<-function(mychr,mystart,myend,mycoll,mydb,url){
   require(mongolite)
   require(GenomicRanges)
   my_collection = mongo(collection = mycoll, db = mydb, url=url) # connect

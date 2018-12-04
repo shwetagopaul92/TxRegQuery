@@ -1,4 +1,4 @@
-#'query Footprint data from mongodb atlas
+#'query Footprint data from MongoDB Atlas
 #'@import GenomicRanges
 #'@import mongolite
 #'@param mychr chromosome
@@ -15,11 +15,11 @@
 #' mycollGo="fSkin_fibro_bicep_R_DS19745_hg19_FP"
 #' mydbGo="txregnet"
 #' url="mongodb+srv://test:test123!@cluster1-ag7nd.mongodb.net/test"
-#' res_fp=getMongoRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo)
+#' res_fp=getAtlasRangeFp(mychrGo,mystartGo,myendGo,mycollGo,mydbGo,url)
 #' res_fp
 #' }
 #' @export
-getAtlasRangeFp<-function(mychr,mystart,myend,url,mycoll,mydb){
+getAtlasRangeFp<-function(mychr,mystart,myend,url,mycoll,mydb,url){
   require(mongolite)
   require(GenomicRanges)
   my_collection = mongo(collection = mycoll, db = mydb,url=url) # connect
